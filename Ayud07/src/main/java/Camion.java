@@ -16,6 +16,8 @@ public class Camion extends Vehiculo {
 
 	@Override
 	public void mostrarDetalles() {
-		System.out.println("Camion: " + getMarca() + " " + getModelo() + ", Año: " + getAño() + ", Precio: $" + getPrecio() + ", Carga: " + capacidadCarga + " tons");
+		System.out.println("Camion: " + getMarca() + " " + getModelo() +
+				", Año: " + getAño() + ", Precio: $" + getPrecio() +
+				", Carga: " + capacidadCarga + " tons");
 	}
 }
