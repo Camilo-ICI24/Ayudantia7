@@ -1,43 +1,30 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Automotora {
+	private List<Vehiculo> vehiculos;
+	private GestorDeDatos gestorDeDatos;
 
-	private Collection<Vehiculo> vehiculos;
-	private List<Vehiculo> listaVehiculos;
-
-	public List<Vehiculo> getListaVehiculos() {
-		return this.listaVehiculos;
+	public Automotora() {
+		this.vehiculos = new ArrayList<>();
+		this.gestorDeDatos = new GestorDeDatos();
 	}
 
-	/**
-	 * 
-	 * @param listaVehiculos
-	 */
-	public void setListaVehiculos(List<Vehiculo> listaVehiculos) {
-		this.listaVehiculos = listaVehiculos;
+	public void agregarVehiculo(Vehiculo vehiculo) {
+		vehiculos.add(vehiculo);
 	}
 
-	/**
-	 * 
-	 * @param vehiculo
-	 */
-	public boolean agregarVehiculo(Vehiculo vehiculo) {
-		// TODO - implement Automotora.agregarVehiculo
-		throw new UnsupportedOperationException();
+	public void listarVehiculos() {
+		for (Vehiculo vehiculo : vehiculos) {
+			vehiculo.mostrarDetalles();
+		}
 	}
 
-	public boolean listarVehiculos() {
-		// TODO - implement Automotora.listarVehiculos
-		throw new UnsupportedOperationException();
+	public void cargarVehiculosDesdeJSON(String archivo) {
+		this.vehiculos = gestorDeDatos.leerVehiculos(archivo);
 	}
 
-	/**
-	 * 
-	 * @param vehiculo
-	 */
-	public boolean mostrarDetalles(Vehiculo vehiculo) {
-		// TODO - implement Automotora.mostrarDetalles
-		throw new UnsupportedOperationException();
+	public void guardarVehiculosEnJSON(String archivo) {
+		gestorDeDatos.guardarVehiculos(archivo, vehiculos);
 	}
-
 }

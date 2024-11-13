@@ -1,57 +1,47 @@
-public class Vehiculo {
-
-	private Automotora automotora;
+public abstract class Vehiculo {
 	private String marca;
 	private String modelo;
-	private int fecha;
+	private int año;
 	private int precio;
 
-	public String getMarca() {
-		return this.marca;
+	public Vehiculo(String marca, String modelo, int año, int precio) {
+		this.marca = marca;
+		this.modelo = modelo;
+		this.año = año;
+		this.precio = precio;
 	}
 
-	/**
-	 * 
-	 * @param marca
-	 */
+	public String getMarca() {
+		return marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public int getAño() {
+		return año;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
 
-	public String getModelo() {
-		return this.modelo;
-	}
-
-	/**
-	 * 
-	 * @param modelo
-	 */
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
 
-	public int getFecha() {
-		return this.fecha;
+	public void setAño(int año) {
+		this.año = año;
 	}
 
-	/**
-	 * 
-	 * @param fecha
-	 */
-	public void setFecha(int fecha) {
-		this.fecha = fecha;
-	}
-
-	public int getPrecio() {
-		return this.precio;
-	}
-
-	/**
-	 * 
-	 * @param precio
-	 */
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 
+	public abstract void mostrarDetalles();
 }

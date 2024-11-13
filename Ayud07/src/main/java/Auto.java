@@ -1,17 +1,19 @@
 public class Auto extends Vehiculo {
+	private int numPuertas;
 
-	private int numeroPuertas;
-
-	public int getNumeroPuertas() {
-		return this.numeroPuertas;
+	public Auto(String marca, String modelo, int año, int precio, int numPuertas) {
+		super(marca, modelo, año, precio);
+		this.numPuertas = numPuertas;
 	}
 
-	/**
-	 * 
-	 * @param numeroPuertas
-	 */
-	public void setNumeroPuertas(int numeroPuertas) {
-		this.numeroPuertas = numeroPuertas;
+	public int getNumPuertas() {
+		return numPuertas;
 	}
 
+	@Override
+	public void mostrarDetalles() {
+		System.out.println("Auto: " + getMarca() + " " + getModelo() + ", Año: "
+				+ getAño() + ", Precio: $" + getPrecio() + ", Puertas: " + numPuertas);
+	}
 }
+

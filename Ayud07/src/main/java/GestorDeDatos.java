@@ -1,19 +1,28 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDeDatos {
+	private ObjectMapper mapper = new ObjectMapper();
 
-	public List<Vehiculo> leerVehiculos() {
-		// TODO - implement GestorDeDatos.leerVehiculos
-		throw new UnsupportedOperationException();
+	public List<Vehiculo> leerVehiculos(String archivo) {
+		try {
+			return mapper.readValue(new File(archivo),
+					mapper.getTypeFactory().constructCollectionType(List.class,
+							Vehiculo.class));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
 	}
 
-	/**
-	 * 
-	 * @param vehiculos
-	 */
-	public void guardarVehiculos(List<Vehiculo> vehiculos) {
-		// TODO - implement GestorDeDatos.guardarVehiculos
-		throw new UnsupportedOperationException();
+	public void guardarVehiculos(String archivo, List<Vehiculo> vehiculos) {
+		try {
+			mapper.writeValue(new File(archivo), vehiculos);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
